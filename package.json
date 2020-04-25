@@ -1,0 +1,42 @@
+{
+  "name": "@plaited/browser-tap",
+  "version": "1.0.0",
+  "bin": {
+    "btap": "bin/btap"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "bin/*",
+    "cli/*",
+    "dist/*",
+    "helpers/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "./bin/btap tests/**/*.spec.js",
+    "test:coverage": "npm run test -- -c",
+    "posttest:coverage": "nyc report --check-coverage"
+  },
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1",
+    "@hapi/inert": "^6.0.1",
+    "@plaited/helpers": "*",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-multi-entry": "^3.0.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "arg": "^4.1.3",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "nyc": "^15.0.1",
+    "puppeteer-core": "^3.0.1",
+    "rollup": "^2.7.1",
+    "rollup-plugin-istanbul": "^2.0.1",
+    "tap-colorize": "^1.2.0",
+    "tap-finished": "^0.0.1",
+    "tap-parser": "^10.0.1",
+    "zora": "^3.1.8"
+  }
+}

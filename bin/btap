@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+require = require('esm')(module)
+require('dotenv').config()
+const arg = require('arg')
+const { puppeteer } = require('../cli/puppeteer')
+
+const args = arg({
+  '--coverage': Boolean,
+  '--root': String,
+  '--template': String,
+  '--browser': Boolean,
+  '-b': '--browser',
+  '-t': '--template',
+  '-r': '--root',
+  '-c': '--coverage',
+})
+
+const {
+  '--coverage': coverage,
+  '--root': root,
+  '--template': template,
+  '--browser': debug,
+  _: files,
+} = args
+
+puppeteer({
+  coverage,
+  root,
+  template,
+  debug,
+  files,
+})
